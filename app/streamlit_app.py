@@ -206,7 +206,7 @@ def load_predictor() -> CarbonPredictor:
 
 def render_sidebar() -> dict:
     """Render sidebar input controls."""
-    st.sidebar.markdown("## 🏢 Company Profile")
+    st.sidebar.markdown('<h2><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 8px; color: #f5f5f7;"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>Company Profile</h2>', unsafe_allow_html=True)
 
     sectors = sorted(SECTOR_PROFILES.keys())
     sector = st.sidebar.selectbox(
@@ -231,7 +231,7 @@ def render_sidebar() -> dict:
         help="ISO 3166-1 alpha-3 code",
     )
 
-    st.sidebar.markdown("## 💰 Financial Data")
+    st.sidebar.markdown('<h2><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 8px; color: #f5f5f7;"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>Financial Data</h2>', unsafe_allow_html=True)
 
     revenue = st.sidebar.number_input(
         "Annual Revenue (USD)",
@@ -298,7 +298,7 @@ def render_sidebar() -> dict:
 
 def render_header() -> None:
     """Render the main title."""
-    st.markdown('<div class="main-title">🌍 Corporate Carbon Footprint Predictor</div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-title"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 12px; color: #0071e3;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Corporate Carbon Footprint Predictor</div>', unsafe_allow_html=True)
     st.markdown(
         '<div class="subtitle">ML-powered Scope 1 & 2 GHG emissions estimation</div>',
         unsafe_allow_html=True,
@@ -367,7 +367,7 @@ def render_confidence_bar(confidence: float) -> None:
 
 def render_shap_explanation(predictor: CarbonPredictor, features: dict) -> None:
     """Render SHAP waterfall for the prediction."""
-    st.markdown('<div class="section-header">🔍 Prediction Explanation (SHAP)</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 8px; color: #0071e3;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>Prediction Explanation (SHAP)</div>', unsafe_allow_html=True)
 
     try:
         import shap
@@ -398,7 +398,7 @@ def render_shap_explanation(predictor: CarbonPredictor, features: dict) -> None:
 
 def render_feature_importance(predictor: CarbonPredictor) -> None:
     """Render feature importance bar chart from the model."""
-    st.markdown('<div class="section-header">📊 Feature Importance</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 8px; color: #0071e3;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>Feature Importance</div>', unsafe_allow_html=True)
 
     for target in cfg.TARGETS:
         if target not in predictor.models:
@@ -474,7 +474,7 @@ def render_emissions_breakdown(result) -> None:
 
 def render_model_info(predictor: CarbonPredictor) -> None:
     """Render model metadata tab."""
-    st.markdown('<div class="section-header">🤖 Model Information</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 8px; color: #0071e3;"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>Model Information</div>', unsafe_allow_html=True)
 
     for target in cfg.TARGETS:
         meta = predictor.meta.get(target, {})
@@ -487,7 +487,7 @@ def render_model_info(predictor: CarbonPredictor) -> None:
 
 def render_methodology() -> None:
     """Render methodology information."""
-    with st.expander("📖 Methodology", expanded=False):
+    with st.expander("Methodology", expanded=False):
         st.markdown("""
         ### Data Sources
         - **Emissions**: CDP Open Data (Scope 1 & 2 disclosure)
@@ -532,7 +532,7 @@ def main() -> None:
 
     if not predictor.is_ready:
         st.error(
-            "⚠️ No trained models found. Run the training pipeline first:\n\n"
+            "No trained models found. Run the training pipeline first:\n\n"
             "```bash\n"
             "python -m src.synthetic_data\n"
             "python -m src.ingestion --synthetic\n"
