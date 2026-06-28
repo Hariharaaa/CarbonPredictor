@@ -29,6 +29,7 @@ env/
 data/raw/*.csv
 data/raw/*.xlsx
 data/processed/*.csv
+!data/processed/test_scope*.csv
 data/external/*.csv
 
 # Models (large binaries)
