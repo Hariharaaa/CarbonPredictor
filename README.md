@@ -16,7 +16,11 @@
 
 ## Overview
 
+![Dashboard Metrics](docs/images/dashboard_1.png)
+
 A production-quality machine learning system that predicts a company's **Scope 1** (direct) and **Scope 2** (indirect energy) greenhouse gas emissions using publicly available financial and operational data.
+
+![Dashboard SHAP](docs/images/dashboard_2.png)
 
 Built to the quality standards expected from ESG analytics providers such as **MSCI, Sustainalytics, Clarity AI, Bloomberg**, and **Morningstar**.
 
