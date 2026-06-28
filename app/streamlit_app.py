@@ -350,9 +350,9 @@ def render_confidence_bar(confidence: float) -> None:
     """Render a visual confidence indicator."""
     pct = confidence * 100
     color = (
-        "#0071e3" if pct >= 70 else  /* Apple Blue */
-        "#f56300" if pct >= 40 else  /* Subtle Orange */
-        "#e30000"                    /* Subtle Red */
+        "#0071e3" if pct >= 70 else  # Apple Blue
+        "#f56300" if pct >= 40 else  # Subtle Orange
+        "#e30000"                    # Subtle Red
     )
     st.markdown(f"""
     <div class="section-header">Prediction Confidence</div>
