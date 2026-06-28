@@ -46,101 +46,145 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-    /* Dark premium theme overrides */
-    .stApp {
-        background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    /* Premium Minimalist Dark Theme */
+    html, body, [class*="css"] {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
+    
+    .stApp {
+        background-color: #000000;
+        background-image: radial-gradient(circle at 50% 0%, #1a1a24 0%, #000000 70%);
+        color: #f5f5f7;
+    }
+    
     .main .block-container {
-        padding-top: 2rem;
-        max-width: 1200px;
+        padding-top: 3rem;
+        max-width: 1100px;
     }
 
-    /* Metric cards */
+    /* Minimal Glassmorphism Cards */
     .metric-card {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 16px;
-        padding: 1.5rem;
-        backdrop-filter: blur(10px);
+        background: rgba(30, 30, 35, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 2rem 1.5rem;
         text-align: center;
-        transition: transform 0.2s, box-shadow 0.2s;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
     }
     .metric-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0,200,150,0.15);
+        transform: translateY(-4px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
     }
     .metric-value {
-        font-size: 2.2rem;
-        font-weight: 700;
-        background: linear-gradient(135deg, #00c896, #00b4d8);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        font-size: 2.8rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: #ffffff;
         margin: 0.5rem 0;
+        line-height: 1.1;
     }
     .metric-label {
-        font-size: 0.85rem;
-        color: rgba(255,255,255,0.6);
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #86868b;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
     }
     .metric-sublabel {
-        font-size: 0.75rem;
-        color: rgba(255,255,255,0.4);
-        margin-top: 0.3rem;
+        font-size: 0.8rem;
+        color: #6e6e73;
+        margin-top: 0.5rem;
+        font-weight: 400;
     }
 
-    /* Section headers */
+    /* Clean Headers */
     .section-header {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #00c896;
-        margin: 1.5rem 0 1rem 0;
-        padding-bottom: 0.5rem;
-        border-bottom: 1px solid rgba(0,200,150,0.2);
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #f5f5f7;
+        margin: 2.5rem 0 1.5rem 0;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .section-header::before {
+        content: "";
+        display: block;
+        width: 4px;
+        height: 16px;
+        background: #0071e3;
+        border-radius: 2px;
     }
 
-    /* Confidence bar */
+    /* Refined Confidence bar */
     .confidence-bar {
-        background: rgba(255,255,255,0.1);
-        border-radius: 10px;
-        height: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 999px;
+        height: 6px;
         overflow: hidden;
         margin: 0.5rem 0;
+        flex: 1;
     }
     .confidence-fill {
         height: 100%;
-        border-radius: 10px;
-        transition: width 0.5s ease;
+        border-radius: 999px;
+        transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    /* Header styling */
+    /* Premium Main Title */
     .main-title {
-        font-size: 2.5rem;
-        font-weight: 800;
-        background: linear-gradient(135deg, #00c896 0%, #00b4d8 50%, #7c3aed 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        font-size: 3.5rem;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        color: #f5f5f7;
         text-align: center;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.2rem;
+        line-height: 1.1;
     }
     .subtitle {
         text-align: center;
-        color: rgba(255,255,255,0.5);
-        font-size: 1rem;
-        margin-bottom: 2rem;
+        color: #86868b;
+        font-size: 1.1rem;
+        font-weight: 400;
+        margin-bottom: 3.5rem;
+        letter-spacing: -0.01em;
     }
 
     /* Hide Streamlit branding */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
+    header {background: transparent !important;}
 
-    /* Sidebar styling */
+    /* Sleek Sidebar */
     [data-testid="stSidebar"] {
-        background: rgba(10,10,26,0.95);
-        border-right: 1px solid rgba(255,255,255,0.05);
+        background-color: rgba(15, 15, 18, 0.95);
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
     }
     [data-testid="stSidebar"] .stMarkdown h2 {
-        color: #00c896;
+        color: #f5f5f7;
+        font-weight: 600;
+        font-size: 1.1rem;
+        letter-spacing: -0.01em;
+    }
+    
+    /* Input field styling */
+    .stNumberInput > div > div > input, .stSelectbox > div > div > div {
+        background-color: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 8px !important;
+        color: #f5f5f7 !important;
+    }
+    .stNumberInput > div > div > input:focus, .stSelectbox > div > div > div:focus {
+        border-color: #0071e3 !important;
+        box-shadow: 0 0 0 1px #0071e3 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -306,17 +350,17 @@ def render_confidence_bar(confidence: float) -> None:
     """Render a visual confidence indicator."""
     pct = confidence * 100
     color = (
-        "#00c896" if pct >= 70 else
-        "#ffc107" if pct >= 40 else
-        "#ff4444"
+        "#0071e3" if pct >= 70 else  /* Apple Blue */
+        "#f56300" if pct >= 40 else  /* Subtle Orange */
+        "#e30000"                    /* Subtle Red */
     )
     st.markdown(f"""
     <div class="section-header">Prediction Confidence</div>
     <div style="display: flex; align-items: center; gap: 1rem;">
-        <div class="confidence-bar" style="flex: 1;">
+        <div class="confidence-bar">
             <div class="confidence-fill" style="width: {pct}%; background: {color};"></div>
         </div>
-        <span style="color: {color}; font-weight: 600; font-size: 1.1rem;">{pct:.0f}%</span>
+        <span style="color: {color}; font-weight: 500; font-size: 1rem;">{pct:.0f}%</span>
     </div>
     """, unsafe_allow_html=True)
 
