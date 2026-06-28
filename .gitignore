@@ -1,0 +1,54 @@
+# ──────────────────────────────────────────────
+# Corporate Carbon Footprint Predictor – .gitignore
+# ──────────────────────────────────────────────
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Environment
+.env
+
+# Data (keep structure, ignore raw files)
+data/raw/*.csv
+data/raw/*.xlsx
+data/processed/*.csv
+data/external/*.csv
+
+# Models (large binaries)
+models/*.pkl
+models/*.joblib
+models/*.cbm
+!models/best_*.joblib
+
+# Reports (generated)
+reports/figures/*.html
+reports/figures/*.png
+reports/shap/*.html
+reports/shap/*.png
+reports/*.csv
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Streamlit
+.streamlit/
+
+# Misc
+*.log
